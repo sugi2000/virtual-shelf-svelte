@@ -15,16 +15,11 @@
 	<h1>
 		Virtual shelves
 	</h1>
-
 	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
+		仮想書棚
 	</h2>
-
-	<Counter />
-
-	<div class="test">Test.日本語</div>
-	<img src="/spine/0123" />
-	<img src="/spine/4567" />
+	<!-- <img src="/spine/0123" />
+	<img src="/spine/4567" /> -->
 	<Spine {data} />
 	<Spine data={{isbn:456}} />
 
