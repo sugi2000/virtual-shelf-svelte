@@ -6,7 +6,7 @@
 </script>
 
 <div class="book-shelf">
-{#each d as data}
+{#each data as d}
   <Spine data={d}/>
 {/each}
 </div>
