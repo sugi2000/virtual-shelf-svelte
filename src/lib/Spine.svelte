@@ -26,8 +26,8 @@
 		const url = `${endpoint}?${queryString}`;
 		// return url;
 
-		// const openXML = await d3.xml(`https://sugi2000cors.herokuapp.com/` + url);
-		const openXML = await d3.xml(url);
+		const openXML = await d3.xml(`https://sugi2000cors.herokuapp.com/` + url);
+		// const openXML = await d3.xml(url);
 		// return openXML;
 		const openXMLText = new XMLSerializer().serializeToString(openXML);
 		// return openXMLText;
