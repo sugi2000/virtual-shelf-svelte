@@ -1,6 +1,6 @@
 <script>
 	import Counter from '$lib/Counter.svelte';
-	import Spine from "$lib/Spine.svelte";
+	import Shelf from "$lib/Shelf.svelte";
 
 	const data = ({isbn: 123});
 
@@ -18,10 +18,7 @@
 	<h2>
 		仮想書棚
 	</h2>
-	<!-- <img src="/spine/0123" />
-	<img src="/spine/4567" /> -->
-	<Spine {data} />
-	<Spine data={{isbn:456}} />
+	<Shelf {data}/>
 
 </section>
 
