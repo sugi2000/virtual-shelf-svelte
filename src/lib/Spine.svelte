@@ -1,5 +1,6 @@
 <script>
 	import * as d3 from 'd3';
+	import x2js from 'x2js';
 	export let data;
 	// import { page } from '$app/stores';
 
@@ -29,11 +30,14 @@
 		const url = `${endpoint}?${queryString}`;
 		// return url;
 
-		const openXML = await d3.xml(`https://sugi2000cors.herokuapp.com/` + url);
+		const proxy = "https://class.sugimototatsuo.com/proxy.php";
+ 		const openXML = await d3.xml(
+  	  proxy + "?method=GET&cors=" + encodeURIComponent(url)
+  	);
 		// const openXML = await d3.xml(url);
 		// return openXML;
 		const openXMLText = new XMLSerializer().serializeToString(openXML);
-		// return openXMLText;
+		return openXMLText;
 		const rss = x2js.xml2js(openXMLText).rss;
 		// return rss;
 
@@ -69,5 +73,4 @@ svg {
 	display: inline-block;
 	margin: 1px;
 }
-
 </style>
