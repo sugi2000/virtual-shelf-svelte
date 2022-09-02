@@ -2,7 +2,18 @@
 	import Counter from '$lib/Counter.svelte';
 	import Shelf from "$lib/Shelf.svelte";
 
-	const data = ({isbn: 123});
+	let isbns = `9784098253937
+9784098254149
+9784098254026
+9784098254132
+9784098253746
+9784098254095
+9784098254064
+9784098254033
+9784098254002
+9784098254118`;
+
+	$: data = isbns.map(isbn = ({isbn}));
 
 </script>
 
@@ -19,6 +30,7 @@
 		仮想書棚
 	</h2>
 	<Shelf {data}/>
+	<textarea bind:value={isbns}></textarea>
 
 </section>
 
