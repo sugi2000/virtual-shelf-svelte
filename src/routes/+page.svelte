@@ -13,7 +13,7 @@
 9784098254002
 9784098254118`;
 
-	$: data = isbns.split('\n').map(isbn => ({isbn}));
+	$: data = isbns.split('\n').filter(d => d).map(isbn => ({isbn}));
 
 </script>
 

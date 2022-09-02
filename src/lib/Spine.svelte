@@ -37,11 +37,19 @@
 		// const openXML = await d3.xml(url);
 		// return openXML;
 		const openXMLText = new XMLSerializer().serializeToString(openXML);
-		return openXMLText;
-		const rss = x2js.xml2js(openXMLText).rss;
-		// return rss;
+		// return openXMLText;
 
-		return rss.channel.item || undefined;
+
+		const xml = (new window.DOMParser()).parseFromString(openXMLText, "text/xml");
+		console.log(xml.querySelector('rss channel item title'));
+		return {
+			title: xml.querySelector('rss channel item title').textContent
+		};
+
+		// const rss = x2js.xml2js(openXMLText).rss;
+		// return rss;
+		// return rss.channel.item || undefined;
+
 	}
 
 	$: item = searchISBN(isbn);
@@ -58,7 +66,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
 	width="30" height="400" class="book-spine">
 		<rect width="30" height="400" fill="#800"></rect>
-		<text x="0" y="50" font-family="sans-serif" fill="#fff">{result.title[0]}</text>
+		<text x="15" y="50" font-family="sans-serif" fill="#fff">{result.title}</text>
 </svg>
 {:catch error}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
@@ -72,5 +80,8 @@
 svg {
 	display: inline-block;
 	margin: 1px;
+}
+svg text {
+	writing-mode: vertical-rl;
 }
 </style>
