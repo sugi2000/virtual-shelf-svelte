@@ -30,7 +30,7 @@
 		仮想書棚
 	</h2>
 	<Shelf {data}/>
-	<textarea bind:value={isbns}></textarea>
+	<textarea bind:value={isbns} class="isbn-box"></textarea>
 
 </section>
 
@@ -45,5 +45,9 @@
 
 	h1 {
 		width: 100%;
+	}
+
+	.isbn-box {
+		height: 11em;
 	}
 </style>
