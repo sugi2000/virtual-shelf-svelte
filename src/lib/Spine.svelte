@@ -1,8 +1,11 @@
 <script>
 	import * as d3 from 'd3';
 	export let data;
+	// import { page } from '$app/stores';
 
 	$: isbn = data.isbn;
+
+	// console.log($page);
 
 	const searchISBN = async (isbn) => {
 		// const dpid = ["iss-ndl-opac", "ciniib"].join(" ");
@@ -21,8 +24,6 @@
 		const queryString = Object.entries(query)
 			.map(([key, value]) => `${key}=${encodeURI(value)}`)
 			.join("&");
-
-		console.log(lacation.hostname);
 
 		const endpoint = "https://iss.ndl.go.jp/api/opensearch";
 		const url = `${endpoint}?${queryString}`;
