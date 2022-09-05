@@ -8,8 +8,7 @@ export function GET({ params }) {
 	const isbn = slug.at(0);
 	// console.log('isbn:', isbn);
 
-	const title = await searchISBN(isbn);
-	console.log(title);
+	searchISBN(isbn).then((info) => console.log(info));
 
 	// const svg = d3
 	// 	.create('svg')
