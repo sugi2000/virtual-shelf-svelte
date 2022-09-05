@@ -30,6 +30,7 @@
 		仮想書棚
 	</h2>
 	<Shelf {data}/>
+	<img src="/spine/9784098253937" alt="9784098253937"/>
 	<textarea bind:value={isbns} class="isbn-box"></textarea>
 
 </section>
