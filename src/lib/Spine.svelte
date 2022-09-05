@@ -58,7 +58,7 @@
 	$: item = searchISBN(isbn);
 
 	onMount(async () => {
-		const item = await searchISBN(isbn);
+		// const item = await searchISBN(isbn);
 		const svg = d3.select(el)
 			.append('svg')
 			.attr('xmlns', 'http://www.w3.org/2000/svg')
