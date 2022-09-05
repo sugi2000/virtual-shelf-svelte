@@ -3,7 +3,7 @@
 	// import x2js from 'x2js';
 	export let data;
 	// import { page } from '$app/stores';
-	import {searchISBN} from '$lib/search.js';
+	import {searchISBN} from './search';
 
 	$: isbn = data.isbn;
 
