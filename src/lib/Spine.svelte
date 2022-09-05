@@ -1,6 +1,6 @@
 <script>
 	import * as d3 from 'd3';
-	import x2js from 'x2js';
+	// import x2js from 'x2js';
 	export let data;
 	// import { page } from '$app/stores';
 
