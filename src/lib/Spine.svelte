@@ -3,55 +3,55 @@
 	// import x2js from 'x2js';
 	export let data;
 	// import { page } from '$app/stores';
-	import {searchISBN} from './search';
+	// import {searchISBN} from './search.js';
 
 	$: isbn = data.isbn;
 
 	// console.log($page);
 
-	// const searchISBN = async (isbn) => {
-	// 	// const dpid = ["iss-ndl-opac", "ciniib"].join(" ");
-	// 	const dpid = "iss-ndl-opac"; // data privider id
-	// 	// const dpid = "ciniib";
-	// 	const mediatype = 1; // 1: Books
+	const searchISBN = async (isbn) => {
+		// const dpid = ["iss-ndl-opac", "ciniib"].join(" ");
+		const dpid = "iss-ndl-opac"; // data privider id
+		// const dpid = "ciniib";
+		const mediatype = 1; // 1: Books
 
-	// 	const query = {
-	// 		isbn,
-	// 		dpid,
-	// 		mediatype,
-	// 		idx: 1,
-	// 		cnt: 500
-	// 	};
+		const query = {
+			isbn,
+			dpid,
+			mediatype,
+			idx: 1,
+			cnt: 500
+		};
 
-	// 	const queryString = Object.entries(query)
-	// 		.map(([key, value]) => `${key}=${encodeURI(value)}`)
-	// 		.join("&");
+		const queryString = Object.entries(query)
+			.map(([key, value]) => `${key}=${encodeURI(value)}`)
+			.join("&");
 
-	// 	const endpoint = "https://iss.ndl.go.jp/api/opensearch";
-	// 	const url = `${endpoint}?${queryString}`;
-	// 	// return url;
+		const endpoint = "https://iss.ndl.go.jp/api/opensearch";
+		const url = `${endpoint}?${queryString}`;
+		// return url;
 
-	// 	const proxy = "https://class.sugimototatsuo.com/proxy.php";
- 	// 	const openXML = await d3.xml(
-  // 	  proxy + "?method=GET&cors=" + encodeURIComponent(url)
-  // 	);
-	// 	// const openXML = await d3.xml(url);
-	// 	// return openXML;
-	// 	const openXMLText = new XMLSerializer().serializeToString(openXML);
-	// 	// return openXMLText;
+		const proxy = "https://class.sugimototatsuo.com/proxy.php";
+ 		const openXML = await d3.xml(
+  	  proxy + "?method=GET&cors=" + encodeURIComponent(url)
+  	);
+		// const openXML = await d3.xml(url);
+		// return openXML;
+		const openXMLText = new XMLSerializer().serializeToString(openXML);
+		// return openXMLText;
 
 
-	// 	const xml = (new window.DOMParser()).parseFromString(openXMLText, "text/xml");
-	// 	console.log(xml.querySelector('rss channel item title'));
-	// 	return {
-	// 		title: xml.querySelector('rss channel item title').textContent
-	// 	};
+		const xml = (new window.DOMParser()).parseFromString(openXMLText, "text/xml");
+		console.log(xml.querySelector('rss channel item title'));
+		return {
+			title: xml.querySelector('rss channel item title').textContent
+		};
 
-	// 	// const rss = x2js.xml2js(openXMLText).rss;
-	// 	// return rss;
-	// 	// return rss.channel.item || undefined;
+		// const rss = x2js.xml2js(openXMLText).rss;
+		// return rss;
+		// return rss.channel.item || undefined;
 
-	// }
+	}
 
 	$: item = searchISBN(isbn);
 
