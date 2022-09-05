@@ -1,5 +1,4 @@
 <script>
-	import Counter from '$lib/Counter.svelte';
 	import Shelf from "$lib/Shelf.svelte";
 
 	let isbns = `9784098253937
